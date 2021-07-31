@@ -1,0 +1,22 @@
+{
+  "name": "tankbot",
+  "version": "1.0.0",
+  "description": "TankBot is a Discord bot that facilitates the social deduction game \"Tank Turn Tactics\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Maxman013/tankbot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Maxman013/tankbot/issues"
+  },
+  "homepage": "https://github.com/Maxman013/tankbot#readme",
+  "dependencies": {
+    "discord.js": "^12.5.3"
+  }
+}
