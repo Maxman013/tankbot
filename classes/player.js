@@ -20,6 +20,18 @@ class Player {
         this.name = name;
         this.id = id;
     }
+
+    addAction(amount) {
+        this.action += amount;
+    }
+
+    addHealth(amount) {
+        this.health += amount;
+    }
+
+    addRange(amount) {
+        this.range += amount;
+    }
 }
 
 module.exports = Player;

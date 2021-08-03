@@ -32,11 +32,11 @@ bot.on("message", message => {
         const width = 20;
         const height = 20;
 
-        message.guild.members.cache.forEach(member => {
+        for (var i = 0; i < 20; i++) {
             var randomX = Math.floor(Math.random() * width);
             var randomY = Math.floor(Math.random() * height);
-            players.push(new Player(3, 2, 0, randomX, randomY, member.displayName, member.id));
-        })
+            players.push(new Player(3, 2, 0, randomX, randomY, String.fromCharCode(65 + i), i));
+        }
 
         game = new Game(players, new Board(height, width));
         game.addPlayers();
@@ -46,7 +46,7 @@ bot.on("message", message => {
     if (message.content == "!board") {
         var output = "```";
         for (var i = 0; i < game.board.height; i++) {
-            for (var j = 0; j < game.board.height; j++) {
+            for (var j = 0; j < game.board.width; j++) {
                 if (game.board.cells[i][j] != "") {
                     output += game.board.cells[i][j].name.substring(0, 1) + " ";
                 } else {
@@ -60,9 +60,12 @@ bot.on("message", message => {
     }
 
     if (message.content == "!players") {
+        var output = "";
         for (var i = 0; i < game.players.length; i++) {
-            message.channel.send(game.players[i].name);
+            output += `${game.players[i].name}: Location (${game.players[i].x}, ${game.players[i].y}), ` +
+                    `Health: ${game.players[i].health}, Range: ${game.players[i].range}, Action Points: ${game.players[i].action}\n`;
         }
+        message.channel.send(output);
     }
 });
 
